@@ -8,13 +8,18 @@ form.addEventListener("submit",(e)=>{
     let messages=[];
     if(nameInput.value===""||nameInput.value==null){
         messages.push("Name is required");
+         e.preventDefault();
     }
     //check password length
     if(password.value.length<=6){
         messages.push("Password must be longer than 6 characters ");
     }
      if(password.value.length>=20){
-        messages.push("Password must be less than 20 characters ");
+
+    }
+    if(password.value.toLowerCase()==="password"){
+        messages.push("password cannot be password");
+   
     }
     //if there are errors
     //prevent default behaviour of submitting the form to the server
